@@ -2,4 +2,5 @@
 /mvc
 /config.php
 
+.htaccess
 temp.*

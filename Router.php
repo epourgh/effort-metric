@@ -84,7 +84,7 @@ class Route {
             $requestMethod = $_SERVER['REQUEST_METHOD'];
 
             $results = self::$queryModel->getSpecific($requestMethod, $table, $id, $params);
-            // var_dump($results);
+            var_dump($results);
         }
 
         
