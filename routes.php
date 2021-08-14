@@ -10,4 +10,4 @@ $route->get('/users');
 
 $route->get('/user/:id');
 
-$route->get('/user/:id?name=:name&password=:password&email=:email');
+$route->put('/user/:id?name=:name&password=:password&email=:email');
