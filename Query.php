@@ -24,19 +24,37 @@ class Query
 
     function getSpecific($requestMethod, $table, $id, $params)
     {
-        if (count($params) == 0) {
-            echo '$params is empty';
+        if (count($params) == 0) { echo '$params is empty'; }
+        if ($id == '') { echo '$id is empty'; }
+
+        switch($requestMethod) {
+            case('GET'):
+
+                if (substr($table, -1) != 's' && $id != '') {
+                    $table = $table . 's WHERE id=' . $id;
+                }
+
+                $query ='SELECT * FROM ' . $table . ';';
+
+                break;
+            case('POST'):
+                break;
+            case('PUT'):
+
+                $query = "UPDATE {$table}s SET ";
+
+                foreach ($params as $key => $value) {
+                    $query .= "{$key} = {$value} ";
+                }
+
+                $query .= "WHERE id={$id}";
+
+                break;
+            case('DELETE'):
+                break;
         }
 
-        if ($id == '') {
-            echo '$id is empty';
-        }
-
-        if (substr($table, -1) != 's' && $id != '') {
-            $table = $table . 's WHERE id=' . $id;
-        }
-
-        $this->db->query('SELECT * FROM '. $table.';');
+        $this->db->query($query);
         $rows = $this->db->fetchAll();
 
         $data = [
