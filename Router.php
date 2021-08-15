@@ -66,7 +66,7 @@ class Route {
         array_shift($route_path_arr);
 
         if ($request_path == '/' && $route_path == '/') {
-            $results = self::$queryModel->getIndex();
+            $results = self::$queryModel->noTableQuery();
             var_dump($results);
             exit();
         }
@@ -83,7 +83,7 @@ class Route {
             $table = $request_path_arr[0];
             $requestMethod = $_SERVER['REQUEST_METHOD'];
 
-            $results = self::$queryModel->getSpecific($requestMethod, $table, $id, $params);
+            $results = self::$queryModel->query($requestMethod, $table, $id, $params);
             var_dump($results);
         }
 
