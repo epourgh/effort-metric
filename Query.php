@@ -40,29 +40,45 @@ class Query
 
                 break;
             case('POST'):
+
+                $query = "INSERT INTO {$table}s (";
+
+                $i = 0;
+                foreach ($params as $key => $value) {
+                    $i++;
+                    $query .= "{$key}";
+                    $query .= ($i !== count($params)) ? ", " : " ";
+                }
+
+                $query .= ') VALUES (';
+
+                $i = 0;
+                foreach ($params as $key => $value) {
+                    $i++;
+                    $query .= "'{$value}'";
+                    $query .= ($i !== count($params)) ? ", " : " ";
+                }
+
+                $query .= ");";
+
                 break;
             case('PUT'):
 
                 $query = "UPDATE {$table}s SET ";
 
-                $i=0;
+                $i = 0;
 
                 foreach ($params as $key => $value) {
                     $i++;
                     $query .= "{$key} = '{$value}'";
-                    if ($i !== count($params)) {
-                        $query .= ", ";
-                    } else {
-                        $query .= " ";
-                    }
+                    $query .= ($i !== count($params)) ? ", " : " ";
                 }
 
                 $query .= "WHERE id={$id};";
 
-                echo $query;
-
                 break;
             case('DELETE'):
+                $query = 'DELETE FROM ' . $table . 's WHERE id=' . $id;
                 break;
         }
 
