@@ -1,7 +1,8 @@
 @import 'global.module';
 
 .footerContent {
-    color: $background-color;
+    background: $background-color;
     text-align: center;
     padding: 10px;
+    height: 10vh;
 }

@@ -1,6 +1,6 @@
 $font: "Karla", sans-serif;
-$primary-color: #fff;
-$background-color: rgb(224, 175, 175);
+$primary-color: rgb(0, 0, 0);
+$background-color: rgb(255, 110, 110);
 
 $medium: 900px;
 $large: 1500px;
@@ -14,3 +14,26 @@ body {
     font-family: $font;
     color: $primary-color;
 }
+
+.wrapper {
+    min-height: 85vh;
+    width: 100vw;
+}
+
+.content {
+    margin: 1%;
+    padding: 1%;
+    width: 98%;
+    border: 1px solid $background-color;
+}
+
+@media screen and (min-width: $medium) {}
+
+@media screen and (min-width: $large) {
+    .content {
+        margin: 2% 10%;
+        padding: 2%;
+        width: 80%;
+    }
+}
+
