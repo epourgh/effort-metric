@@ -46,7 +46,7 @@ class Route {
         return $params;
     }
 
-    static function parseUrl($route)
+    static function parseUrl($route, $method)
     {
 
         $request_url = filter_var($_SERVER['REQUEST_URI'], FILTER_SANITIZE_URL);
@@ -77,44 +77,47 @@ class Route {
 
         $id = Route::getId($route_path_arr, $request_path_arr);
         $params = Route::getParams($request_query_arr);
+
+
         
-        if ($request_path_arr[0] == $route_path_arr[0]) {
+        if ($request_path_arr[0] == $route_path_arr[0] && $method == null) {
             
             $table = $request_path_arr[0];
             $requestMethod = $_SERVER['REQUEST_METHOD'];
-
+            
             $results = self::$queryModel->query($requestMethod, $table, $id, $params);
             var_dump($results);
+        } elseif ($request_path_arr[0] == $route_path_arr[0]) {
+            $result = $method->query();
+            var_dump($result);
         }
-
-        
     }
 
-    function get($route)
+    function get($route, $method = null)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            Route::parseUrl($route);
+            Route::parseUrl($route, $method);
         }
     }
 
-    function post($route)
+    function post($route, $method = null)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            Route::parseUrl($route);
+            Route::parseUrl($route, $method);
         }
     }
 
-    function put($route)
+    function put($route, $method = null)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
-            Route::parseUrl($route);
+            Route::parseUrl($route, $method);
         }
     }
 
-    function delete($route)
+    function delete($route, $method = null)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
-            Route::parseUrl($route);
+            Route::parseUrl($route, $method);
         }
     }
 }

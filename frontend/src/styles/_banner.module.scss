@@ -1,0 +1,16 @@
+@import 'global.module';
+
+.titleStyle {
+    padding: 5px;
+}
+
+.titleStyle a {
+    letter-spacing: 3px;
+    text-transform: lowercase;
+    text-decoration: none;
+    color: $primary-color;
+}
+
+.bannerContent {
+    background: $background-color;
+}

@@ -1,6 +1,10 @@
-/php
-/mvc
-/config.php
-
-.htaccess
+# global
 temp.*
+
+# backend
+backend/config.php
+.htaccess
+
+# frontend
+frontend/node_modules
+frontend/dist
