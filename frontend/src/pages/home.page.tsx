@@ -17,7 +17,7 @@ const HomePage = () => {
     { userId: 1, weekId: 1, monday: 0, tuesday: 0, wednesday: 0, thursday: 0, friday: 0, saturday: 0, sunday: 0 }, 
     { userId: 2, weekId: 1, monday: 0, tuesday: 0, wednesday: 0, thursday: 0, friday: 0, saturday: 0, sunday: 0 },
     { userId: 1, weekId: 2, monday: 0, tuesday: 0, wednesday: 0, thursday: 0, friday: 0, saturday: 0, sunday: 0 }, 
-    { userId: 2, weekId: 2, monday: 0, tuesday: 0, wednesday: 0, thursday: 0, friday: 0, saturday: 0, sunday: 0 },
+    { userId: 2, weekId: 1, monday: 60, tuesday: 30, wednesday: 90, thursday: 45, friday: 60, saturday: 0, sunday: 60 },
     { userId: 1, weekId: 3, monday: 0, tuesday: 0, wednesday: 0, thursday: 0, friday: 0, saturday: 0, sunday: 0 }, 
     { userId: 2, weekId: 3, monday: 0, tuesday: 0, wednesday: 0, thursday: 0, friday: 0, saturday: 0, sunday: 0 }
   ];
@@ -46,8 +46,6 @@ const HomePage = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
-        <h1>Home</h1>
-        <p>Information on the home section.</p>
         <p>Name: <b>{userLogin.name}</b></p>
         <br />
         <EffortList effortUnits={effortArr} />

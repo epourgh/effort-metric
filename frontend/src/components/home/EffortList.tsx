@@ -17,7 +17,8 @@ const EffortList = (props) => {
                 props.effortUnits?.map( unit => {
                     return (
                         <div key={unit.weekId}>
-                            <p><b>{week[unit.weekId - 1].weekStart}</b> to <b>{week[unit.weekId - 1].weekEnd}</b></p>
+                            <h3><b>{week[unit.weekId - 1].weekStart}</b> to <b>{week[unit.weekId - 1].weekEnd}</b></h3>
+                            <br /><br />
                             <div className={styles.gridWrapper}>
                                 <EffortUnit data={unit.monday} />
                                 <EffortUnit data={unit.tuesday} />
