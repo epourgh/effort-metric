@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from '../styles/_banner.module.scss';
+import styles from '../../styles/_banner.module.scss';
 
 const BannerComponent = () => (
   <div className={styles.bannerContent}>

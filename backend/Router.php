@@ -67,7 +67,7 @@ class Route {
 
         if ($request_path == '/' && $route_path == '/') {
             $results = self::$queryModel->noTableQuery();
-            var_dump($results);
+            // var_dump($results);
             exit();
         }
 
@@ -86,10 +86,10 @@ class Route {
             $requestMethod = $_SERVER['REQUEST_METHOD'];
             
             $results = self::$queryModel->query($requestMethod, $table, $id, $params);
-            var_dump($results);
+            // var_dump($results);
         } elseif ($request_path_arr[0] == $route_path_arr[0]) {
             $result = $method->query();
-            var_dump($result);
+            // var_dump($result);
         }
     }
 

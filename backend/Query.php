@@ -14,21 +14,22 @@ class Query
     function noTableQuery()
     {
         $data = [
-            'query' => 'Route is missing.'
+            "SimpleRouter" => "Route is missing."
         ];
-        return $data;
+
+        die(json_encode($data, JSON_FORCE_OBJECT));
     }
 
     function query($requestMethod, $table, $id, $params)
     {
-        if (count($params) == 0) {
-            echo '$params is empty';
-        }
-        if ($id == '') {
-            echo '$id is empty';
-        }
+        // if (count($params) == 0) {
+        //     echo '$params is empty';
+        // }
+        // if ($id == '') {
+        //     echo '$id is empty';
+        // }
 
-        echo $requestMethod;
+        // echo $requestMethod;
 
         switch ($requestMethod) {
             case ('GET'):
@@ -52,7 +53,9 @@ class Query
         $data = [
             'users' => $rows
         ];
-        return $data;
+        // header('Content-Type: application/json');
+        echo json_encode($data, JSON_FORCE_OBJECT );
+        exit();
     }
 
     function get($table, $id, $params)
