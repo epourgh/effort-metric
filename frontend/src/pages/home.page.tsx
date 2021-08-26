@@ -6,28 +6,31 @@ import Login from '../components/home/Login'
 import Register from '../components/home/Register'
 
 interface UserInterface {
-
+  id?: number,
+  name?: string,
 }
 
 const HomePage = () => {
   const [effortArr, setEffortArr] = useState([]);
 
-  // const userLogin = {id: 1, name: 'Emerson'};
-  // const userLogin = {id: 2, name: 'Jennifer'}
-  const userLogin = {};
+  let userLogin: UserInterface = {};
+  // userLogin = {id: 1, name: 'Emerson'};
+  userLogin = {id: 2, name: 'Jennifer'}
   
   const effortUnits = [
     { userId: 1, weekId: 1, monday: 0, tuesday: 0, wednesday: 0, thursday: 0, friday: 0, saturday: 0, sunday: 0 }, 
     { userId: 2, weekId: 1, monday: 0, tuesday: 0, wednesday: 0, thursday: 0, friday: 0, saturday: 0, sunday: 0 },
     { userId: 1, weekId: 2, monday: 0, tuesday: 0, wednesday: 0, thursday: 0, friday: 0, saturday: 0, sunday: 0 }, 
-    { userId: 2, weekId: 1, monday: 60, tuesday: 30, wednesday: 90, thursday: 45, friday: 60, saturday: 0, sunday: 60 },
+    { userId: 2, weekId: 2, monday: 60, tuesday: 30, wednesday: 90, thursday: 45, friday: 60, saturday: 0, sunday: 60 },
     { userId: 1, weekId: 3, monday: 0, tuesday: 0, wednesday: 0, thursday: 0, friday: 0, saturday: 0, sunday: 0 }, 
-    { userId: 2, weekId: 3, monday: 0, tuesday: 0, wednesday: 0, thursday: 0, friday: 0, saturday: 0, sunday: 0 }
+    { userId: 2, weekId: 3, monday: 0, tuesday: 0, wednesday: 0, thursday: 0, friday: 0, saturday: 0, sunday: 0 },
+    { userId: 1, weekId: 4, monday: 0, tuesday: 0, wednesday: 0, thursday: 0, friday: 0, saturday: 0, sunday: 0 }, 
+    { userId: 2, weekId: 4, monday: 0, tuesday: 0, wednesday: 0, thursday: 0, friday: 0, saturday: 0, sunday: 0 }
   ];
 
   useEffect(() => {
 
-    if (userLogin && Object.keys(userLogin).length > 0 && userLogin.constructor === Object) return;
+    if (userLogin && Object.keys(userLogin).length === 0 && userLogin.constructor === Object) return;
     
     let tempUnitsArr = [];
     let limit = 0;
